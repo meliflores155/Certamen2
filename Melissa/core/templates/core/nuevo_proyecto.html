@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container .form-label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+
+  
+  
+</style>
+
+<div class="form-container">
+    <form action="{% url 'agregar_proyecto' %}" method="post">
+        {% csrf_token %}
+        <div class="palabra">Nuevo Proyecto</div>
+        <div class="mb-3">
+            <label for="txtproyecto" class="form-label">Ingrese el Nombre de su proyecto</label>
+            <input type="text" class="form-control" id="txtproyecto" name="txtproyecto" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="cboTematica" class="form-label">Ingrese la temática a elegir</label>
+            <select class="form-select" aria-label="Default select example" id="cboTematica" name="cboTematica" required>
+                <option value="" selected>Opciones</option>
+                <option value="Ciencias">Ciencias</option>
+                <option value="Humanista">Humanista</option>
+                <option value="Informatica">Informática</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="Electricidad">Electricidad</option>
+                <option value="Quimica">Química</option>
+                <option value="Matematicas">Matemáticas</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="txtestudiante" class="form-label">Ingrese su nombre de estudiante</label>
+            <input type="text" class="form-control" id="txtestudiante" name="txtestudiante" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txtinfo" class="form-label">Información de su tema a elegir</label>
+            <input type="text" class="form-control" id="txtinfo" name="txtinfo" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txtprofe" class="form-label">Nombre Profesor</label>
+            <input type="text" class="form-control" id="txtprofe" name="txtprofe" required>
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}
